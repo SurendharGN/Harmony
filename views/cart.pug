@@ -13,6 +13,7 @@ html(lang="en")
                         h1.title #{product.title}
                         img(src="../assets/images/cart.jpg", alt="image").image
                         p.cost 19.9
+                        a(href=`/products/${product.id}`).productLink view
         else 
             h1.empty Cart is empty 
 
