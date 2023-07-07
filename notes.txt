@@ -1,0 +1,46 @@
+Objective:
+    Creating an e-commerce app for an Indian thrift shop.
+
+1. CREATING AN EXPRESS SERVER
+- start by initializing the node package manager to create a node application.
+- npm init 
+- package name: EXPRESS
+- install the dependencies: "express"
+- create a started file named "app.js" and import the express framework
+
+Tip 1: use nodemon for automatically restarting the nodejs server.
+- syntax:   npm i nodemon -g
+            npx nodemon starterFileName
+
+
+2. SENDING HTML & CSS FILES
+2.1. HTML
+    - res.sendFile(path.join(__dirname,'text.html'))
+2.2. CSS
+    - app.use(express.static(path.join(__dirname,’CSS’)))
+
+3. Routing in express js
+    Express router are a way to organize the express application.
+    Routers are like mini versions of express applications. they provide funtionality for handling route matching, requests and responses.
+
+    syntax: 
+    const variableExpress = require("express")
+    const variableRouter = variableExpress.Router()
+    module.exports = variableRouter
+
+    handling the router in app.js:
+        - start by importing the router file
+        - the router can act as a middleware
+        - syntax: app.use(routerName)
+
+
+4. Parsing incoming requests
+
+    const bodyParser = require('body-parser');
+
+    app.use(bodyParser.urlencoded({extended: false}));
+
+5. Rendering a templating engine
+    syntax: 
+        app.render()
+TIP 2: a middleware is a function that has the access to the applications request-response cycle.
