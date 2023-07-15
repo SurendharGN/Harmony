@@ -21,7 +21,7 @@ html(lang="en")
                                         input#data(type="hidden" name="productId" value=`${product.id}`)
                                     .separator
                             #delete
-                                form#deleteLink(action='/cart' method='POST')
+                                form#deleteLink(action='/delete' method='POST')
                                     input(type="hidden" value=`${product.id}` name='prodId')
                                     button#deleteButton(type='submit') Delete
                                         

@@ -16,12 +16,8 @@ router.get('/',indexController.getIndex);
 // middleware for serving the cart section
 router.use('/cart',productsController.showProduct);
 
-
-
 // middleware for handling unique products
 router.get('/products/:productId',productsController.showProductDetails)
-
-// middleware for  handling wishlist
 
 
 // middleware for product ID to add to the wishlist

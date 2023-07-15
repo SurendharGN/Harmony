@@ -42,8 +42,32 @@ module.exports = class Wishlist {
             })
         })
     }
+
+    static deleteProduct(id,price){
+        fs.readFile(filePath,(err,data)=>{
+            if(err){
+                return 0
+            }
+            else{
+                const wishlist = JSON.parse(data);
+                console.log("wishlist from the model:",wishlist)
+                let updatedWishlist ={...wishlist}; 
+
+                const product = updatedWishlist.products.find(prod => prod.id === id);
+
+                updatedWishlist = updatedWishlist.products.filter(prod => prod.id !== id);
+
+                updatedWishlist.totalPrice -= (price*wishlist.qty) ;
+
+                console.log("after deleting",wishlist)
+
+                fs.writeFile(filePath, JSON.stringify(updatedWishlist),(err)=>{
+            console.log(err)
+            })
+
+            }
+        })
+    }
         
         
 }
-
-

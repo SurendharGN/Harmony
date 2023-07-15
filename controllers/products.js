@@ -39,9 +39,15 @@ exports.addToWishlist = (req,res)=>{
         Wishlist.addProduct(prodId,19.9)
     })
     
-   
-        
-    
     console.log(prodId)
     res.render('wishlist')
+}
+
+exports.deleteProduct = (req,res) => {
+    const prodId = req.body.prodId;
+    console.log("delete product id:",prodId);
+    Product.delete(prodId)
+    res.redirect('/cart')
+
+
 }

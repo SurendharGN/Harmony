@@ -2,6 +2,8 @@ const fs = require('fs');
 
 const path = require('path');
 
+const Wishlist = require('./wishlist')
+
 const filePath = path.join(path.dirname(require.main.filename),'data','products.json');
 
 const getProductsFromFile=cb=>{
@@ -46,6 +48,22 @@ module.exports = class  Product {
             const product = products.find(p=>p.id === id)
             cb(product)
         })
+    }
+
+    static delete(productId){
+        getProductsFromFile(products=>{
+            const updatedProducts= products.filter(prod => prod.id !== productId);
+
+            fs.writeFile(filePath, JSON.stringify(updatedProducts),(err)=>{
+                if (!err){
+                    Wishlist.deleteProduct(productId,19.9)
+
+                }
+            })
+
+
+        })
+
     }
 
 } 
