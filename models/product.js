@@ -21,7 +21,7 @@ module.exports = class  Product {
     }
 
     save() {
-        this.id=Math.random().toString();
+        this.id=Math.floor(Math.random()*10).toString();
         
         fs.readFile(filePath, (err,data)=>{
             let products = []

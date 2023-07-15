@@ -8,12 +8,25 @@ html(lang="en")
     body 
         if prods.length > 0
             .grid
-                each product in prods 
-                    .product 
-                        h1.title #{product.title}
-                        img(src="../assets/images/cart.jpg", alt="image").image
-                        p.cost 19.9
-                        a(href=`/products/${product.id}`).productLink view
+                
+                    each product in prods
+                        .product
+                            a(href=`/products/${product.id}`).productLink 
+                                .productBody 
+                                    h1.title #{product.title}
+                                    img(src="../assets/images/cart.jpg", alt="image").image
+                                    p.cost 19.9
+                                    form#form(action="/wishlist" method="POST" ) 
+                                        button.wishlistButton(type='submit' onclick="location.href=/wishlist") Wishlist
+                                        input#data(type="hidden" name="productId" value=`${product.id}`)
+                                    .separator
+                            #delete
+                                form#deleteLink(action='/cart' method='POST')
+                                    input(type="hidden" value=`${product.id}` name='prodId')
+                                    button#deleteButton(type='submit') Delete
+                                        
+                                    
+                            
         else 
             h1.empty Cart is empty 
 

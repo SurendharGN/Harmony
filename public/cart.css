@@ -10,8 +10,9 @@
 
 .title{
     font-size: 12px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:Arial, Helvetica, sans-serif;
     font-weight: 300;
+    text-transform:capitalize;
 }
 .cost{
     font-size: 12px;
@@ -24,7 +25,7 @@
     flex-wrap: wrap;
 }
 
-.product{
+.productBody{
     border: 0.5px solid black;
     width: 80px;
     height: 170px;
@@ -32,6 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom:0px;
 }
 
 .addProduct{
@@ -64,7 +66,52 @@
 .productLink{
     text-decoration: none;
     color: black;
-    font-size: 12px;
+    font-size: 11px;
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 4px;
+}
+
+#form{
+    height: 16px;
+}
+
+.wishlistButton{
+    outline: none;
+    background: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:11px;
+    cursor: pointer;
+    border:none;
+    
+
+
+
+}
+#deleteLink{
+    text-decoration: none;
+    color:black;
+    font-size: 11px;
+}
+
+
+
+#delete{
+    margin-bottom:5px;
+    border:0.5px solid black;
+    padding:5px;
+    text-align: center;
+    z-index: 9999;
+    
+    cursor: pointer;
+}
+
+#deleteButton{
+    outline: none;
+    background-color: white;
+    border:0 ;
+    cursor: pointer;
+    
+    font-size:11px;
+    width:60px;
+    margin:0
 }
