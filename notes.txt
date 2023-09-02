@@ -44,3 +44,19 @@ Tip 1: use nodemon for automatically restarting the nodejs server.
     syntax: 
         app.render()
 TIP 2: a middleware is a function that has the access to the applications request-response cycle.
+
+SQL and NoSQL
+
+SQL
+ - Data usees schemas
+ - Data's are related
+ - Data is  distributed across multiple tables
+ - Vertical scaling is possible
+ - Limitations on reaad and write queries 
+
+NoSQL
+ - Schema-less
+ - Data's are not related
+ - Data is typically merged/nested in collections
+ - Both horizontal and vertical scaling is possible
+ - Great for mass read and write requests.
