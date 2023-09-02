@@ -1,0 +1,23 @@
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.errorImage{
+    height:200px;
+    width: 150;
+    margin: auto;
+}
+.text{
+    
+}
+
+.home{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
