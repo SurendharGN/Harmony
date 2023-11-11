@@ -1,0 +1,20 @@
+:root {
+  font-family:  Arial;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+#login,#register{
+  display:flex;
+  flex-direction: column;
+  gap:6px;
+}
+
+.signup:hover,.signin:hover{
+  cursor: pointer;
+}
+
+.signup,.signin{
+  width:2rem;
+  margin:auto
+}
