@@ -60,3 +60,24 @@ NoSQL
  - Data is typically merged/nested in collections
  - Both horizontal and vertical scaling is possible
  - Great for mass read and write requests.
+
+ RESOURCES AND GUIDES
+ 1. The process of building a mern application:
+ link: 
+
+FIREBASE AUTHENTICATION:
+1. npm i firebase 
+2. create a firebase.js file in the src folder
+3. copy the boilerplate code from the firebase application of the project.
+4. import {getAuth} from "firebase/auth";
+5. initialize the func and export it.
+6. have an auth component and import it there.
+7. import { createUserWithEmailAndPassword } from "firebase/auth": for the standard one
+
+GOOGLE FIREBASE
+1. import { GoogleAuthProvider } from "firebase/auth";
+2. const provider = new GoogleAuthProvider();
+3. import signupWithPopup(auth,provider)
+
+GETTING THE VALUE FROM THE INPUT
+useState: e=>e.target.value -> the "target" proerty returns the element where the event occured
