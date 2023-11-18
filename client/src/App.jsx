@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import './App.css';
+
+
+import { Link } from 'react-router-dom';
 
 function App() {
+  const[app,setApp]=useState(0);
 
 
   return (
@@ -13,11 +16,11 @@ function App() {
       
       <div className="auth">
         <h2>Signup/register</h2>
-        
-
         <div id="register">
-          <a className="signup">Account</a>
-          <a className="signup">Google</a>
+          
+          {/* <Auth/> */}
+          <Link className="signup" to="/createAccount">Create account</Link>
+          
           <a className="signup">Guest</a>
         </div>
 
@@ -28,7 +31,7 @@ function App() {
         <h2>Login/sign-in</h2>
 
         <div id="login">
-          <a className="signin">Account</a>
+          <a className="signin">Your account</a>
           <a className="signin">Google</a>
           <a className="signin">Guest</a>
         </div>
