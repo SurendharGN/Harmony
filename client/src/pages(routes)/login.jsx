@@ -1,17 +1,14 @@
 import { auth, googleProvider } from "../config/firebase";
 import { useState } from "react";
-import { createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup} from "firebase/auth";
 
-export const Auth = () =>{
+export const Login = () =>{
 
   const[email,setEmail]=useState("");
   const[passwd,setPasswd]=useState("");
-  const[name,setName]=useState("");
 
-  const createAccount = async() => {
-    await createUserWithEmailAndPassword(auth,email,passwd);
-    
-    
+  const login = async() => {
+    await signInWithEmailAndPassword(auth,email,passwd);
   }
 
   const signinWithGoogle = async() => {
@@ -24,9 +21,7 @@ export const Auth = () =>{
 
       <input type="password" placeholder="Passwd" onChange={(e)=>{setPasswd(e.target.value)}}></input>
 
-      <input placeholder="Name" onChange={(e)=>{setName(e.target.value)}}></input>
-
-      <button onClick={createAccount}>Create</button>
+      <button onClick={login}>Login</button>
 
       <div>
         <button onClick={signinWithGoogle}>Google</button>
@@ -35,3 +30,5 @@ export const Auth = () =>{
     </div>
   )
 }
+
+

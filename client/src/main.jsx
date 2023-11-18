@@ -1,30 +1,38 @@
+// Importing packages
 import React from 'react'
 import ReactDOM from 'react-dom/client';
-
-import App from './App.jsx';
-import { Auth } from './components/auth.jsx';
-import './index.css';
-
-
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+
+// Importing components
+import App from './App.jsx';
+import { Homepage } from './pages(routes)/homepage.jsx';
+import { Error } from './pages(routes)/404-error.jsx';
+import { Login } from './pages(routes)/login.jsx';
+import { Product } from './pages(routes)/product.jsx';
+
+import { Auth } from './components/auth.jsx';
+
+// Importing CSS
+import './index.css';
 
 const router = createBrowserRouter([{
   path:"/",
-  element: <App/>
+  element: <App/>,
+  errorElement: <Error/>
 },
   {path:"/createAccount",
   element: <Auth/>
 },
-  {path:"/",
-  element: <App/>
+  {path:"/homepage",
+  element: <Homepage/>
 
 },
-  {path:"/",
-  element: <App/>
+  {path:"/login",
+  element: <Login/>
 
 },
-  {path:"/",
-  element: <App/>
+  {path:"/shop/:product",
+  element: <Product/>
 
 },
   {path:"/",
