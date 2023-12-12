@@ -7,17 +7,22 @@ import { Navbar } from './components/navbar';
 // Importing styles
 import './App.css';
 
+
+
 // Importing packages
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {Helmet} from "react-helmet";
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 function App() {
   // const[app,setApp]=useState(0);
   // const location=useLocation();
+  const navigate=useNavigate();
+  const navigator = () => {
+    navigate("/")
 
-  
-
+  }
 
   return (
     <>
@@ -29,14 +34,14 @@ function App() {
         <meta name="keywords" content="dresses," />
         < meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Helmet>
-      <h1>Harmony</h1>
+      <h1 onClick={navigator}>Harmony</h1>
 
-      <Navbar/>
+      {/* <Navbar/> */}
+      <hr></hr>
       
       <div className="auth">
         <h2>Signup/register</h2>
         <div id="register">
-          
           {/* <Auth/> */}
           <Link className="signup" to="/createAccount">Create account</Link>
           

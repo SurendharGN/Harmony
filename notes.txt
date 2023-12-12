@@ -81,3 +81,7 @@ GOOGLE FIREBASE
 
 GETTING THE VALUE FROM THE INPUT
 useState: e=>e.target.value -> the "target" proerty returns the element where the event occured
+
+CHALLENGES FACED:
+1. protected routes. 
+2.firebase authentication.

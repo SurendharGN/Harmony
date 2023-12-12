@@ -16,8 +16,7 @@ export const Navbar = () => {
       <div id="men">
         <Link className="mens-link" to="/shop/sherwani">Sherwani</Link>
         <Link className="mens-link" to="/shop/kurtha">Kurta</Link>
-        <Link className="mens-link" to="/shop/angarkha">Angarkha</Link>
-        <Link className="mens-link" to="/shop/dhoti">Dhoti/veshti</Link>
+        
       </div>
     </div>
   )
