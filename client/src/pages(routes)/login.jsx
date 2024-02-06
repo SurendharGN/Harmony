@@ -1,29 +1,35 @@
 import { auth, googleProvider } from "../config/firebase";
 import { useState,useEffect } from "react";
-import { onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup,signOut} from "firebase/auth";
+import { useUserAuth } from "../context/userAuthContext.";
 
 export const Login = () =>{
 
   const[email,setEmail]=useState("");
   const[passwd,setPasswd]=useState("");
 
-  const signout=async()=>{
-    await signOut(auth);
-  };
-  const login = async() => {
-    await signInWithEmailAndPassword(auth,email,passwd);
+  const {login,signinWithGoogle,signout}=useUserAuth();
+
+  // onAuthStateChanged(auth,user=>{
+  //     console.log(user)
+  //     if(user){
+  //       window.location="/homepage"; 
+  //     }
+  //   });
+
+  const handleGoogleLogin=async(e)=>{
+    e.preventDefault();
+    await signinWithGoogle();
   }
 
-  const signinWithGoogle = async() => {
-    await signInWithPopup(auth, googleProvider);
+  const handleLogin=async(e)=>{
+    e.preventDefault();
+    await login(email,passwd)
   }
 
-  onAuthStateChanged(auth,user=>{
-      console.log(user)
-      if(user){
-        window.location="/homepage"; 
-      }
-    });
+  const handleLogout=async(e)=>{
+    e.preventDefault();
+    await signout();
+  }
   
   return(
     <div>
@@ -32,14 +38,14 @@ export const Login = () =>{
 
       <input type="password" placeholder="Passwd" onChange={(e)=>{setPasswd(e.target.value)}}></input>
 
-      <button onClick={login}>Login</button>
+      <button onClick={handleLogin}>Login</button>
 
       <div>
-        <button onClick={signinWithGoogle}>Google</button>
+        <button onClick={handleGoogleLogin}>Google</button>
       </div>
 
       <div>
-        <button onClick={signout}>Sign out</button>
+        <button onClick={handleLogout}>Sign out</button>
       </div>
     </div>
   )

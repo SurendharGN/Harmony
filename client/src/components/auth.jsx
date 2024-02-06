@@ -1,7 +1,7 @@
 import { auth, googleProvider } from "../config/firebase";
 import { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup} from "firebase/auth";
 import { Link } from "react-router-dom";
+import { useUserAuth } from "../context/userAuthContext.";
 
 export const Auth = () =>{
 
@@ -9,16 +9,27 @@ export const Auth = () =>{
   const[passwd,setPasswd]=useState("");
   const[name,setName]=useState("");
 
-  const createAccount = async() => {
-    await createUserWithEmailAndPassword(auth,email,passwd);
-  }
+  const {signinWithGoogle}=useUserAuth();
+  const {createAccount}=useUserAuth();
 
   
-  const signinWithGoogle = async() => {
-    await signInWithPopup(auth, googleProvider)
+
+  // const handleSubmit=async(e)=>{
+  //   e.preventDefault();
+    
+
+  // }
+  const handleGoggleSignUp=async(e)=>{
+    e.preventDefault();
+    await signinWithGoogle();
+  }
+
+  const handleCreateAccount=async(e)=>{
+    e.preventDefault();
+    await createAccount(email,passwd)
   }
   return(
-    <div>
+    <form >
       <input placeholder="E-mail" onChange={(e)=>{setEmail(e.target.value)}}></input>
 
       <input type="password" placeholder="Passwd" onChange={(e)=>{setPasswd(e.target.value)}}></input>
@@ -26,10 +37,10 @@ export const Auth = () =>{
       <input placeholder="Name" onChange={(e)=>{setName(e.target.value)}}></input>
       {/* {currentUser?.displayName} */}
 
-      <button onClick={createAccount}>Create</button>
+      <button onClick={handleCreateAccount}>Create</button>
 
       <div>
-        <button onClick={signinWithGoogle}>Google</button>
+        <button onClick={handleGoggleSignUp}>Google</button>
       </div>
 
       <div className="login">
@@ -38,6 +49,6 @@ export const Auth = () =>{
       </div>
       
       {name?.displayName}
-    </div>
+    </form>
   )
 }

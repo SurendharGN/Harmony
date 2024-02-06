@@ -7,6 +7,8 @@ import { Navbar } from './components/navbar';
 // Importing styles
 import './App.css';
 
+// Importing the context
+import { UserAuthContextProvider } from './context/userAuthContext.';
 
 
 // Importing packages
@@ -25,7 +27,8 @@ function App() {
   }
 
   return (
-    <>
+    <UserAuthContextProvider>
+
       <Helmet>
         <title>Harmony: a luxury attire</title>
         <meta charset="UTF-8"/>
@@ -69,7 +72,7 @@ function App() {
       
       
       
-    </>
+    </UserAuthContextProvider>
   )
 }
 
